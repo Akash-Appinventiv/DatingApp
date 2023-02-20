@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import {normalize} from '../../../utils/dimenstion';
+import {normalize} from '../../../utils/dimenstions';
 import {walkthroughText, walthroughImages} from '../../../utils/dummyData';
 
 const renderSpace = () => {
