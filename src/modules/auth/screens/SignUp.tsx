@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {images} from '../../../utils/localimages';
+import localimages from '../../../utils/localimages';
 import {normalize} from '../../../utils/dimensions';
 import CustomButton from '../../../components/CustomButton';
 import OrCustom from '../../../components/OrCustom';
@@ -19,7 +19,7 @@ const SignUp = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={'red'} barStyle="dark-content" />
       <View style={styles.mainView}>
-        <Image style={styles.logoImg} source={images.logo} />
+        <Image style={styles.logoImg} source={localimages.logo} />
         <CustomText customTxt={'Sign up to continue'} />
       </View>
       <CustomButton buttonTxt={'Continue with email'} />
@@ -35,13 +35,13 @@ const SignUp = () => {
       <OrCustom OrText={'or sign up with'} />
       <View style={styles.touchableImageView}>
         <TouchableOpacity>
-          <Image source={images.Fb} />
+          <Image source={localimages.Fb} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={images.Google} />
+          <Image source={localimages.Google} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={images.Apple} />
+          <Image source={localimages.Apple} />
         </TouchableOpacity>
       </View>
       <View
