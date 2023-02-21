@@ -15,8 +15,13 @@ import CustomButton from '../../../components/CustomButton';
 import OrCustom from '../../../components/SepratorWithText';
 import CustomText from '../../../components/CustomText';
 import {socialImages} from '../../../utils/dummyData';
+import {useNavigation} from '@react-navigation/native';
 
 const SignUp = () => {
+  const navigation = useNavigation<any>();
+  const NavigateLoginWithPhnNo = () => {
+    navigation.navigate('PhoneNoLogin');
+  };
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -30,6 +35,7 @@ const SignUp = () => {
           buttonTxt={'Use phone number'}
           buttonTxtStyle={styles.phnNumbertxt}
           buttonStyle={styles.phnNumberStyle}
+          onPress={NavigateLoginWithPhnNo}
         />
         <OrCustom OrText={'or sign up with'} />
         <View style={styles.touchableImageView}>

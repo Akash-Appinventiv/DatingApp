@@ -10,6 +10,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {normalize} from '../../../utils/dimenstions';
 import {walkthroughText, walthroughImages} from '../../../utils/dummyData';
 import CustomButton from '../../../components/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const renderSpace = () => {
   return <View style={{width: normalize(65)}} />;
@@ -18,7 +19,7 @@ const renderSpace = () => {
 const Walkthrough = () => {
   const listRef = useRef<any>();
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const navigation = useNavigation<any>();
   useEffect(() => {
     setTimeout(() => {
       setCurrentIndex(currentIndex < 2 ? currentIndex + 1 : 0);
@@ -41,6 +42,9 @@ const Walkthrough = () => {
         }
       />
     );
+  };
+  const NavigateSignUp = () => {
+    navigation.navigate('SignUp');
   };
 
   return (
@@ -82,7 +86,7 @@ const Walkthrough = () => {
           })}
         </View>
       </View>
-      <CustomButton buttonTxt={'Create an Account'} />
+      <CustomButton buttonTxt={'Create an Account'} onPress={NavigateSignUp} />
       <Text style={styles.haveAccountText}>
         {'Already have an account? '}
         <Text style={styles.signInText}>Sign In</Text>
