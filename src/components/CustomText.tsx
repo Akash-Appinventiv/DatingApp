@@ -2,10 +2,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {normalize} from '../utils/dimensions';
 
-const CustomText = ({customTxt}: any) => {
+const CustomText = ({customTxt, fontStyletxt}: any) => {
   return (
     <View style={styles.textView}>
-      <Text style={styles.signUptxt}>{customTxt}</Text>
+      <Text style={[styles.signUptxt, fontStyletxt]}>{customTxt}</Text>
     </View>
   );
 };
