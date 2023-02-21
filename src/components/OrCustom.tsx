@@ -4,9 +4,9 @@ import React from 'react';
 export default function OrCustom({OrText}: any) {
   return (
     <View style={styles.ORparent}>
-      <View style={styles.orinner}></View>
+      <View style={styles.orinner} />
       <Text style={styles.ortxt}>{OrText}</Text>
-      <View style={styles.orinner1}></View>
+      <View style={styles.orinner1} />
     </View>
   );
 }

@@ -9,6 +9,7 @@ import {
 import React, {useEffect, useRef, useState} from 'react';
 import {normalize} from '../../../utils/dimenstions';
 import {walkthroughText, walthroughImages} from '../../../utils/dummyData';
+import CustomButton from '../../../components/CustomButton';
 
 const renderSpace = () => {
   return <View style={{width: normalize(65)}} />;
@@ -43,7 +44,7 @@ const Walkthrough = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.contentContainer}>
       <View style={styles.carouselContainer}>
         <FlatList
           ref={listRef}
@@ -53,6 +54,7 @@ const Walkthrough = () => {
           showsHorizontalScrollIndicator={false}
           ListHeaderComponent={renderSpace}
           ListFooterComponent={renderSpace}
+          scrollEnabled={false}
         />
       </View>
       <View style={styles.textContainer}>
@@ -80,6 +82,11 @@ const Walkthrough = () => {
           })}
         </View>
       </View>
+      <CustomButton buttonTxt={'Create an Account'} />
+      <Text style={styles.haveAccountText}>
+        {'Already have an account? '}
+        <Text style={styles.signInText}>Sign In</Text>
+      </Text>
     </SafeAreaView>
   );
 };
@@ -87,8 +94,9 @@ const Walkthrough = () => {
 export default Walkthrough;
 
 const styles = StyleSheet.create({
+  contentContainer: {height: '100%'},
   carouselContainer: {
-    height: '61.1%',
+    height: '46.3%',
     marginTop: normalize(20),
   },
   carouselActiveImage: {
@@ -138,5 +146,16 @@ const styles = StyleSheet.create({
     width: normalize(8),
     backgroundColor: '#00000019',
     borderRadius: normalize(5),
+  },
+  haveAccountText: {
+    fontSize: normalize(16),
+    textAlign: 'center',
+    marginTop: normalize(20),
+  },
+  signInText: {
+    fontSize: normalize(15),
+    fontWeight: '700',
+    color: '#E94057',
+    lineHeight: normalize(21),
   },
 });

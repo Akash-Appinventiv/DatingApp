@@ -4,7 +4,6 @@ import {
   Text,
   TextStyle,
   TouchableOpacity,
-  View,
   ViewStyle,
 } from 'react-native';
 import React from 'react';
@@ -29,15 +28,15 @@ export default CustomButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: '#E94057',
-    borderRadius: 10,
+    borderRadius: normalize(10),
     padding: normalize(16),
     alignItems: 'center',
-    marginHorizontal: 40,
+    marginHorizontal: normalize(40),
     marginTop: normalize(32),
   },
   buttonText: {
     color: 'white',
     fontWeight: '700',
-    fontSize: 16,
+    fontSize: normalize(16),
   },
 });
