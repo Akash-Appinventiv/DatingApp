@@ -5,6 +5,11 @@ export const walthroughImages = [
   localimages.WALKTHROUGH2,
   localimages.WALKTHROUGH1,
 ];
+export const socialImages = [
+  localimages.Fb,
+  localimages.Google,
+  localimages.Apple,
+];
 
 export const walkthroughText = [
   {

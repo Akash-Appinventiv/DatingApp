@@ -6,53 +6,50 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import localimages from '../../../utils/localimages';
 import {normalize} from '../../../utils/dimensions';
 import CustomButton from '../../../components/CustomButton';
-import OrCustom from '../../../components/OrCustom';
+import OrCustom from '../../../components/SepratorWithText';
 import CustomText from '../../../components/CustomText';
+import {socialImages} from '../../../utils/dummyData';
 
 const SignUp = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={'red'} barStyle="dark-content" />
-      <View style={styles.mainView}>
-        <Image style={styles.logoImg} source={localimages.logo} />
-        <CustomText customTxt={'Sign up to continue'} />
-      </View>
-      <CustomButton buttonTxt={'Continue with email'} />
-      <CustomButton
-        buttonTxt={'Use phone number'}
-        buttonTxtStyle={{color: '#E94057'}}
-        buttonStyle={{
-          backgroundColor: 'white',
-          borderWidth: 0.2,
-          marginTop: normalize(20),
-        }}
-      />
-      <OrCustom OrText={'or sign up with'} />
-      <View style={styles.touchableImageView}>
-        <TouchableOpacity>
-          <Image source={localimages.Fb} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Image source={localimages.Google} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Image source={localimages.Apple} />
-        </TouchableOpacity>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignSelf: 'center',
-          marginTop: normalize(60),
-        }}>
-        <Text style={{marginRight: normalize(32)}}>{'Terms of use'}</Text>
-        <Text>{'Privacy Policy'}</Text>
-      </View>
+      <ScrollView>
+        <StatusBar backgroundColor={'white'} barStyle="dark-content" />
+        <View style={styles.mainView}>
+          <Image style={styles.logoImg} source={localimages.logo} />
+          <CustomText customTxt={'Sign up to continue'} />
+        </View>
+        <CustomButton buttonTxt={'Continue with email'} />
+        <CustomButton
+          buttonTxt={'Use phone number'}
+          buttonTxtStyle={styles.phnNumbertxt}
+          buttonStyle={styles.phnNumberStyle}
+        />
+        <OrCustom OrText={'or sign up with'} />
+        <View style={styles.touchableImageView}>
+          {socialImages.map(item => {
+            return (
+              <TouchableOpacity>
+                <Image source={item} />
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+        <View style={styles.footer}>
+          <TouchableOpacity>
+            <Text style={styles.termstxt}>{'Terms of use'}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.privacytxt}>{'Privacy Policy'}</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -65,31 +62,49 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   mainView: {
-    marginTop: normalize(128),
+    marginTop: normalize(78),
     alignSelf: 'center',
     alignItems: 'center',
   },
   logoImg: {
     height: normalize(100),
-    width: normalize(108),
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    // width: normalize(108),
   },
-  //   signUptxt: {
-  //     marginTop: normalize(79),
-  //     fontWeight: '700',
-  //     fontSize: 18,
-  //     color: 'black',
-  //   },
   footer: {
     flexDirection: 'row',
-    marginTop: normalize(70),
-    // justifyContent: 'space-between',
-    // alignSelf: 'center',
-    // paddingHorizontal: 20,
+    alignSelf: 'center',
+    marginTop: normalize(60),
   },
   touchableImageView: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    justifyContent: 'space-between',
+    // alignItems: 'center',
+    // alignSelf: 'center',
+    marginHorizontal: normalize(71),
     marginTop: normalize(32),
+    // paddingHorizontal: 10,
+    // borderWidth: 1,
+  },
+  termstxt: {
+    marginRight: normalize(32),
+    color: '#E94057',
+    fontSize: 14,
+    fontWeight: '400',
+  },
+  privacytxt: {
+    color: '#E94057',
+    fontSize: 14,
+    fontWeight: '400',
+  },
+  phnNumberStyle: {
+    backgroundColor: 'white',
+    borderWidth: 1,
+    marginTop: normalize(20),
+    borderColor: '#F3F3F3',
+  },
+  phnNumbertxt: {
+    color: '#E94057',
   },
 });
