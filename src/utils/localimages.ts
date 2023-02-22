@@ -9,4 +9,5 @@ export default {
   Apple: require(`${DEFAULTPATH}Apple.png`),
   BackDrop: require(`${DEFAULTPATH}BackDrop.png`),
   search: require(`${DEFAULTPATH}search.png`),
+  backbtn: require(`${DEFAULTPATH}Backbtn.png`),
 };

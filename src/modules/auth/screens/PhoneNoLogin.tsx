@@ -13,12 +13,17 @@ import CustomButton from '../../../components/CustomButton';
 import localimages from '../../../utils/localimages';
 import Modal from 'react-native-modal';
 import CountryModal from '../../../components/CountryModal';
+import {useNavigation} from '@react-navigation/native';
 const PhoneNoLogin = () => {
   const [countryModal, setCountryModal] = React.useState<boolean>(false);
-  const [dial, setDial] = React.useState<string>('country');
+  const [dial, setDial] = React.useState<string>('+91');
   const [flag, setFlag] = React.useState<string>('🇮🇳');
+  const navigation = useNavigation<any>();
   const toggleModal = () => {
     setCountryModal(!countryModal);
+  };
+  const NavigateOtp = () => {
+    navigation.navigate('OtpScreens');
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -60,6 +65,7 @@ const PhoneNoLogin = () => {
       <CustomButton
         buttonStyle={{marginTop: normalize(64)}}
         buttonTxt={'Continue'}
+        onPress={NavigateOtp}
       />
     </SafeAreaView>
   );
