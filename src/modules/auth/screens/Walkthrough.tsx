@@ -23,7 +23,7 @@ const Walkthrough = () => {
   useEffect(() => {
     setTimeout(() => {
       setCurrentIndex(currentIndex < 2 ? currentIndex + 1 : 0);
-    }, 6000);
+    }, 3000);
   }, [currentIndex]);
 
   const renderImages = ({item, index}: any) => {
@@ -40,6 +40,7 @@ const Walkthrough = () => {
             ? styles.carouselActiveImage
             : styles.carouselInactiveImage
         }
+        blurRadius={currentIndex === index ? 0 : 6}
       />
     );
   };

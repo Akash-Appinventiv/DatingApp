@@ -13,7 +13,6 @@ import country from '../utils/countryCode';
 import localimages from '../utils/localimages';
 import {normalize} from '../utils/dimensions';
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 const CountryModal = ({
   countryModal,
   setCountry,
@@ -63,6 +62,7 @@ const CountryModal = ({
           data={filterData}
           renderItem={_renderItem}
           showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps={'handled'}
         />
       </View>
     </View>
@@ -129,17 +129,18 @@ const styles = StyleSheet.create({
   },
   flag: {
     color: 'black',
-    fontSize: 26,
+    fontSize: normalize(26),
+    width: '10%',
   },
   name: {
     color: 'black',
-    width: '60%',
-    fontSize: 20,
+    width: '58%',
+    fontSize: normalize(20),
   },
   code: {
     color: 'black',
-    width: '15%',
+    width: '20%',
     textAlign: 'right',
-    fontSize: 20,
+    fontSize: normalize(20),
   },
 });

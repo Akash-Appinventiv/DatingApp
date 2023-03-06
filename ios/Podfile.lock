@@ -12,8 +12,16 @@ PODS:
     - React-Core (= 0.71.3)
     - React-jsi (= 0.71.3)
     - ReactCommon/turbomodule/core (= 0.71.3)
+  - Firebase/Auth (10.5.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 10.5.0)
   - Firebase/CoreOnly (10.5.0):
     - FirebaseCore (= 10.5.0)
+  - FirebaseAuth (10.5.0):
+    - FirebaseCore (~> 10.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
+    - GoogleUtilities/Environment (~> 7.8)
+    - GTMSessionFetcher/Core (< 4.0, >= 2.1)
   - FirebaseCore (10.5.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
@@ -116,6 +124,7 @@ PODS:
     - GoogleUtilities/MethodSwizzler
   - GoogleUtilities/UserDefaults (7.11.0):
     - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (3.1.0)
   - hermes-engine (0.71.3):
     - hermes-engine/Pre-built (= 0.71.3)
   - hermes-engine/Pre-built (0.71.3)
@@ -480,9 +489,13 @@ PODS:
     - React-Core
     - SDWebImage (~> 5.11.1)
     - SDWebImageWebPCoder (~> 0.8.4)
-  - RNFBApp (17.3.0):
+  - RNFBApp (17.3.1):
     - Firebase/CoreOnly (= 10.5.0)
     - React-Core
+  - RNFBAuth (17.3.1):
+    - Firebase/Auth (= 10.5.0)
+    - React-Core
+    - RNFBApp
   - RNScreens (3.20.0):
     - React-Core
     - React-RCTImage
@@ -563,6 +576,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
+  - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -570,6 +584,7 @@ SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
     - Firebase
+    - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreInternal
     - Flipper
@@ -583,6 +598,7 @@ SPEC REPOS:
     - FlipperKit
     - fmt
     - GoogleUtilities
+    - GTMSessionFetcher
     - libevent
     - libwebp
     - OpenSSL-Universal
@@ -671,6 +687,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fast-image"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
+  RNFBAuth:
+    :path: "../node_modules/@react-native-firebase/auth"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   Yoga:
@@ -684,6 +702,7 @@ SPEC CHECKSUMS:
   FBLazyVector: 60195509584153283780abdac5569feffb8f08cc
   FBReactNativeSpec: 9c191fb58d06dc05ab5559a5505fc32139e9e4a2
   Firebase: 3d6637234ab163e31852834617b4fe1df3b7af6d
+  FirebaseAuth: 1028326bcaa7a61391386e74b9078cc558ae14f1
   FirebaseCore: 324b8d182d9ff7e3f6d1fa2f04b082d1c7a3e366
   FirebaseCoreInternal: e463f41bb935cd049505bf7e9a5bdd7dcea90df6
   Flipper: 26fc4b7382499f1281eb8cb921e5c3ad6de91fe0
@@ -698,6 +717,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
+  GTMSessionFetcher: c9e714f7eec91a55641e2bab9f45fd83a219b882
   hermes-engine: 38bfe887e456b33b697187570a08de33969f5db7
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
@@ -734,7 +754,8 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7bf0dafc7b727d93c8cb94eb00a9d3753c446c3e
   ReactCommon: 6f65ea5b7d84deb9e386f670dd11ce499ded7b40
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
-  RNFBApp: 13ca8ba0feba98d4bac2057884894dcf8eedf97f
+  RNFBApp: 159f756a612af7fbcbe56e1556c5f3acb6efbf9b
+  RNFBAuth: 576541a39864ea9f22c3e051505d3ba5686270bd
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d

@@ -18,12 +18,18 @@ const PhoneNoLogin = () => {
   const [countryModal, setCountryModal] = React.useState<boolean>(false);
   const [dial, setDial] = React.useState<string>('+91');
   const [flag, setFlag] = React.useState<string>('🇮🇳');
+  const [number, setNumber] = React.useState<string>('');
   const navigation = useNavigation<any>();
   const toggleModal = () => {
     setCountryModal(!countryModal);
   };
+  console.log('number', `${dial}${number}`);
   const NavigateOtp = () => {
     navigation.navigate('OtpScreens');
+  };
+
+  const onChangeText = (text: string) => {
+    setNumber(text);
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -36,7 +42,7 @@ const PhoneNoLogin = () => {
         </Text>
       </View>
 
-      <Modal isVisible={countryModal} style={{margin: 0}}>
+      <Modal isVisible={countryModal} style={styles.modalContainer}>
         <CountryModal
           country={countryModal}
           setCountry={setCountryModal}
@@ -50,7 +56,7 @@ const PhoneNoLogin = () => {
       <View style={styles.numberView}>
         <TouchableOpacity onPress={toggleModal} style={styles.countryChoose}>
           <Text style={styles.flagtxt}>{flag}</Text>
-          <Text style={styles.flagtxt}>({dial})</Text>
+          <Text style={styles.flagtxt}>{dial}</Text>
           <Image style={styles.bckdrop} source={localimages.BackDrop} />
           <Text style={styles.textLineStyle}>{'|'}</Text>
         </TouchableOpacity>
@@ -60,6 +66,7 @@ const PhoneNoLogin = () => {
           maxLength={10}
           selectionColor={'grey'}
           style={styles.inputStyle}
+          onChangeText={onChangeText}
         />
       </View>
       <CustomButton
@@ -78,6 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
+  modalContainer: {margin: 0},
   headerContainer: {
     marginTop: normalize(128),
     marginHorizontal: normalize(40),

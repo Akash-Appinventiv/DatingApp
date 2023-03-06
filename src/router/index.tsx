@@ -19,7 +19,7 @@ const RootRouter = () => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
-        initialRouteName="AddProfile"
+        initialRouteName="Walkthrough"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Walkthrough" component={Walkthrough} />
